@@ -162,6 +162,10 @@
     font-size: 0.75rem
   }
 
+  .section-options-answers h1 {
+    font-size: 1.2rem;
+  }
+
   .score-card-container h1{
     font-size: 1.2rem;
   }
@@ -171,5 +175,4 @@
     width: 4rem;
   }
 
-  
 }
