@@ -9,7 +9,7 @@
 }
 
 .card-wrapper{
-  min-height: 80vh;
+  margin: 7px auto;
   width: 40%;
   position: absolute;
 }
@@ -130,7 +130,7 @@
 
 .score-card-container {
   width: 40%;
-  margin: 0 auto;
+  margin: 8px auto;
 }
 
 .scoreboard{
