@@ -29,14 +29,26 @@ function App() {
   const [questions,]  =  useState<Array<QuestionType>>(()=> generateQuestions());
   const [answers, setAnswers] = useState<Array<number | null>>(Array(15).fill(null))
   const [isGameFinished, setIsGameFinished] = useState<boolean>(false)
+  const [currentQuestion, setCurrentQuestion] = useState<number>(14)
 
 
   return (
     <>
       <AnimatePresence>
         {!isGameFinished && 
-        <motion.div className='cards-wrapper' exit={exitAnimation} transition={exitTransition}>
-          {questions.map((question, i) => <Card key={i + question.theme} question={question} qno={i} setAnswers={setAnswers} setIsGameFinished={setIsGameFinished} />)}
+        <motion.div 
+          className='cards-wrapper' 
+          exit={exitAnimation} 
+          transition={exitTransition}>
+            {questions.map((question, i) => (
+              <Card 
+                key={i + question.theme} 
+                question={question} 
+                qno={i} 
+                setAnswers={setAnswers} 
+                setIsGameFinished={setIsGameFinished} 
+                currentQuestion={currentQuestion} 
+                setCurrentQuestion={setCurrentQuestion}/>))}
         </motion.div>
         }
       </AnimatePresence>

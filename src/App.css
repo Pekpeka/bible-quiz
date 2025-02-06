@@ -9,6 +9,7 @@
 }
 
 .card-wrapper{
+  min-height: 80vh;
   width: 40%;
   position: absolute;
 }
@@ -40,7 +41,7 @@
 
 .section-question{
   width: 60%;
-  margin: 0 auto;
+  margin: 5px auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -63,6 +64,7 @@
 }
 
 .section-option-answer{
+  font-size: 1.2rem;
   border-radius: 5px;
   background-color: var(--white);
   width: 70%;
@@ -72,6 +74,7 @@
 
 .section-option-answer h1{
   padding: 16px 4px;
+  font-size: 1.5rem;
 }
 
 .bottom-buttons-wrapper{
@@ -134,23 +137,39 @@
   height: 30vh;
   display: grid;
   place-items: center;
-  margin: 5px;
+  margin: 5px 0;
   font-size: 1.85rem;
 }
 
-@media screen and (max-width: 768px) {
-  .card-wrapper, .score-card-container {
-    width: 90%;
-    font-size: 0.75em
-  }
-}
 
 @media screen and (max-width:1280px){
   .card-wrapper, .score-card-container {
     width: 80%;
   }
 
+  .score-card-container {
+    font-size: 1.75rem;
+  }
+
   .score-card-container h1{
     font-size: 1.75rem;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .card-wrapper, .score-card-container {
+    width: 90%;
+    font-size: 0.75rem
+  }
+
+  .score-card-container h1{
+    font-size: 1.2rem;
+  }
+
+  .button-style{
+    height: 4rem;
+    width: 4rem;
+  }
+
+  
 }

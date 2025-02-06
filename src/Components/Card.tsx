@@ -13,14 +13,16 @@ type QuestionType = {
     theme: string,
 }
 type CardProps = {
-    question: QuestionType;
-    qno: number;
-    setAnswers: (prev: any) => void;
-    setIsGameFinished: (state: boolean) => void;
+    question: QuestionType,
+    qno: number,
+    setAnswers: (prev: any) => void,
+    setIsGameFinished: (state: boolean) => void,
+    currentQuestion: number,
+    setCurrentQuestion: (prev: any) => void,
 };
 type ChoiceOptions = number | null
 
-export default function Card({ question, qno, setAnswers, setIsGameFinished }: CardProps) {
+export default function Card({ question, qno, setAnswers, setIsGameFinished, currentQuestion, setCurrentQuestion }: CardProps) {
     const [choice, setChoice] = useState<ChoiceOptions>(null);
     const [skip, setSkip] = useState<boolean>(false);
     const [submit, setSubmit] = useState<boolean>(false);
@@ -41,6 +43,7 @@ export default function Card({ question, qno, setAnswers, setIsGameFinished }: C
     }
 
     const handleSkip = () => {
+        setCurrentQuestion((prev:any)=>prev-1)
         setSkip(true)
         if (questionNo === 15)
             setIsGameFinished(true)
@@ -48,6 +51,7 @@ export default function Card({ question, qno, setAnswers, setIsGameFinished }: C
 
     const handleSubmit = () => {
         if (choice !== null) {
+            setCurrentQuestion((prev:any)=>prev-1)
             setAnswers((prev: any) => {
                 const updatedAnswers = [...prev];
                 updatedAnswers[qno] = choice
@@ -63,7 +67,7 @@ export default function Card({ question, qno, setAnswers, setIsGameFinished }: C
         <AnimatePresence>
             {show &&
                 <motion.div className="card-wrapper"
-                    exit={exitAnimation} transition={exitTransition}
+                    exit={exitAnimation} transition={exitTransition} style={{display: currentQuestion!==qno?'none':'block'}}
                 >
                     <div className="card" >
                         <div className="top">
